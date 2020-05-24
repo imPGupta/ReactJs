@@ -5,16 +5,11 @@ class Dishdetail extends Component{
 
     renderComments(comments){
         if(comments!=null){
-            var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
             const cmnts= comments.map((comment)=>{
-            var d = new Date(comment.date);
-            var m = months[d.getMonth()];
-            var dt = d.getDate();
-            var y = d.getFullYear();
                 return(
                     <li key={comment.id}>
                     <p>{comment.comment}</p>
-                <p>-- {comment.author},&nbsp; {m}&nbsp;{dt},&nbsp;{y}</p>
+                <p>-- {comment.author},&nbsp;{new Intl.DateTimeFormat('en-US',{year:'numeric',month:'short',day:'2-digit'}).format(new Date(Date.parse(comment.date)))}</p>
                     </li>
                 );
             });
@@ -60,9 +55,11 @@ class Dishdetail extends Component{
             const dishItem = this.renderDish(dish);
             const commentItem = this.renderComments(dish.comments);
             return(
-                <div className="row">
+                <div className="container">
+                 <div className="row">
                     {dishItem}
                     {commentItem}
+                </div>
                 </div>
             );
         }
