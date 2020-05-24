@@ -47,7 +47,7 @@ export const DISHES =
         ]                        },
         {
         id: 1,
-        name:'Zucchipakoda',
+        name:'Tucchipakoda',
         image: 'assets/images/zucchipakoda.png',
         category: 'appetizer',
         label:'',
