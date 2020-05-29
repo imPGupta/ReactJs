@@ -4,6 +4,7 @@ import Menu from './MenuComponents';
 import Contact from './ContactComponent';
 import Header from './HeaderComponent';
 import Footer from './FooterComponent';
+import Dishdetail from './DishdetailComponent';
 import {DISHES} from '../shared/dishes';
 import {COMMENTS} from '../shared/comment';
 import {LEADERS} from '../shared/leaders';
@@ -28,12 +29,22 @@ class Main extends Component {
         leader={this.state.leaders.filter((lead)=> lead.featured)[0]}/>
       );
     }
+
+    const DishWithId = ({match})=>{
+      return(
+        <Dishdetail dish={this.state.dishes.filter((dish)=>dish.id === parseInt(match.params.dishId,10))[0]}
+         comments={this.state.comments.filter((comment)=> comment.dishId === parseInt(match.params.dishId,10))}/>
+
+      );
+    }
+
     return (
       <div>
         <Header/>
         <Switch>
           <Route path="/home" component={HomePage}/>
           <Route exact path="/menu/" component={()=> <Menu dishes={this.state.dishes}></Menu>}/>
+          <Route path="/menu/:dishId" component={DishWithId}/>
           <Route exact path="/contactus" component={Contact}/>
           <Redirect to="/home"/>
         </Switch>
