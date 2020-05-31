@@ -40,5 +40,5 @@ function RenderMenuItem({dish, onClick}) {
         </div>
     );
  }
-
+ 
 export default Menu;

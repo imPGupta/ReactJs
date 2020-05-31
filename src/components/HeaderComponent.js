@@ -60,10 +60,8 @@ class Header extends Component{
                     </div>
                 </div>
             </Jumbotron>
-            </React.Fragment>
-                
+            </React.Fragment>               
         );
     }
 }
-
 export default Header;
