@@ -178,12 +178,12 @@ class Contact extends Component {
                             <FormGroup row>
                                 <Label htmlFor="feedback" md={2}>Your Feedback</Label>
                                 <Col md={10}>
-                                    <Input type="textarea" id="message" name="message" placeholder="Maessage" value={this.state.message} onChange={this.handleInputchange} ></Input>
+                                    <Input type="textarea" id="message" name="message" placeholder="Message" value={this.state.message} onChange={this.handleInputchange} ></Input>
                                 </Col>
                             </FormGroup>
                             <FormGroup row>
                                 <Col md={{size:10, offset:2}}>
-                                    <Button type="submit" color="primary" >Send Feedback</Button>
+                                    <Button type="submit" className="btn btn-primary" >Send Feedback</Button>
                                 </Col>
                             </FormGroup>
                         </Form>
