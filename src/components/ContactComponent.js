@@ -20,12 +20,13 @@ class Contact extends Component {
 
     handleSubmit(values){
         console.log('Current State is: '+ JSON.stringify(values));
-        alert("Current State is: " + JSON.stringify(values));
+        // alert("Thank you for the feedback! " + JSON.stringify(values));
+        this.props.postFeedback(this.props.id, values.firstname, values.lastname, values.telnum, values.email, values.agree, values.contactType, values.message);
         this.props.resetFeedbackForm();
         // event.preventDefault();
     }
 
-
+ 
 
     render(){
         // const errors = this.validate(this.state.firstname, this.state.lastname, this.state.telnum, this.state.email);
